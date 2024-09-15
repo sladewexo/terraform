@@ -47,9 +47,9 @@ resource "proxmox_vm_qemu" "prepprovision-test" {
             virtio0 {
                 disk {
                     size = "32G"
-                    type = "disk"
+                    storage_type = "disk"
                     storage = "wexam-ceph-pool" # name of your proxmox storage
-                    iothread = false
+                    iothread = true
                 }
             }
         }
