@@ -27,19 +27,19 @@ resource "proxmox_vm_qemu" "prepprovision-test" {
   # another variable with contents "debian-cloudinit-template"
   clone = var.template_name
   # basic VM settings here. agent refers to guest agent
-  agent = 0
+  agent = 1
   os_type = "Linux"
   cores = 2
   sockets = 1
   cpu = "host"
   memory = 2048
   scsihw = "virtio-scsi-single"
-  bootdisk = "scsi0"
+  # bootdisk = "scsi0"
   disks {
        ide {
             ide3 {
                 cloudinit {
-                    storage = "local-lvm"
+                    storage = "wexam-ceph-pool"
                 }
             }
         }
