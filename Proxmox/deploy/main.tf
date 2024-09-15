@@ -40,7 +40,7 @@ resource "proxmox_vm_qemu" "prepprovision-test" {
     # set disk size here.
     size = "32G"
     type = "disk"
-    storage = "Storage" # name of your proxmox storage
+    storage = "wexam-ceph-pool" # name of your proxmox storage
     iothread = false
   }
   
