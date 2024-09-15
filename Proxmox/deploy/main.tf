@@ -23,7 +23,7 @@ provider "proxmox" {
 }
 
 # resource is formatted to be "[type]" "[entity_name]"
-resource "proxmox_vm_qemu" "ubuntu-cloudinit" {
+resource "proxmox_vm_qemu" "prepprovision-test" {
   count = 3 # just want 1 for now
   name = "centos-vm-${count.index + 1}" #count.index starts at 0, so + 1 means this VM will be named debian-vm-1 in proxmox
   # this now reaches out to the vars file.
@@ -32,7 +32,7 @@ resource "proxmox_vm_qemu" "ubuntu-cloudinit" {
   clone = var.template_name
   # basic VM settings here. agent refers to guest agent
   agent = 0
-  os_type = "cloud-init"
+  os_type = "Linux"
   cores = 2
   sockets = 1
   cpu = "host"
