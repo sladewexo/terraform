@@ -11,7 +11,7 @@ terraform {
   }
 }
 
-provider "proxmox" {
+provider "Telmate/proxmox" {
  
   pm_api_url = "https://172.16.1.61::8006/api2/json"
   
