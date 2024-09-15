@@ -35,19 +35,21 @@ resource "proxmox_vm_qemu" "prepprovision-test" {
   memory = 2048
   scsihw = "virtio-scsi-single"
   bootdisk = "scsi0"
-  disk {
-    slot = "virtio0"
-    # set disk size here.
-    size = "32G"
-    type = "disk"
-    storage = "wexam-ceph-pool" # name of your proxmox storage
-    iothread = false
-  }
-    disks {
-        ide {
+  disks {
+       ide {
             ide3 {
                 cloudinit {
                     storage = "local-lvm"
+                }
+            }
+        }
+        virtio {
+            virtio0 {
+                disk {
+                    size = "32G"
+                    type = "disk"
+                    storage = "wexam-ceph-pool" # name of your proxmox storage
+                    iothread = false
                 }
             }
         }
