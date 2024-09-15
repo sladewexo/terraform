@@ -11,14 +11,10 @@ terraform {
   }
 }
 
-provider "Telmate/proxmox" {
- 
-  pm_api_url = "https://172.16.1.61::8006/api2/json"
-  
+provider "proxmox" {
+  pm_api_url = "https://172.16.1.61:8006/api2/json"
   pm_api_token_id = "terraform@pve!terraform"
-  
   pm_api_token_secret = "31e86197-95e3-416f-af03-3447660f0c12"
-  
   pm_tls_insecure = true
 }
 
