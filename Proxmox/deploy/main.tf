@@ -24,7 +24,7 @@ provider "proxmox" {
 
 # resource is formatted to be "[type]" "[entity_name]"
 resource "proxmox_vm_qemu" "test_server" {
-  count = 1 # just want 1 for now
+  count = 3 # just want 1 for now
   name = "debian-vm-${count.index + 1}" #count.index starts at 0, so + 1 means this VM will be named debian-vm-1 in proxmox
   # this now reaches out to the vars file.
   target_node = var.proxmox_host
@@ -63,7 +63,7 @@ resource "proxmox_vm_qemu" "test_server" {
   # in this case, since we are only adding a single VM, the IP will
   # be 192.168.100.91 since count.index starts at 0. this is how you can create
   # multiple VMs and have an IP assigned to each (.91, .92, .93, etc.)
-  ipconfig0 = "ip=192.168.100.9${count.index + 1}/24,gw=192.168.100.1"
+  ipconfig0 = "ip=172.16.1.10${count.index + 1}/24,gw=172.16.1.254"
   
   # sshkeys set using variables. the variable contains the text of the key.
   sshkeys = <<EOF
