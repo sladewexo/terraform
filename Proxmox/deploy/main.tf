@@ -34,7 +34,7 @@ resource "proxmox_vm_qemu" "prepprovision-test" {
   cpu = "host"
   memory = 2048
   scsihw = "virtio-scsi-single"
-  # bootdisk = "scsi0"
+  bootdisk = "scsi0"
   disks {
        ide {
             ide3 {
