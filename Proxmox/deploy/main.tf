@@ -36,8 +36,8 @@ resource "proxmox_vm_qemu" "prepprovision-test" {
   scsihw = "virtio-scsi-single"
   bootdisk = "scsi0"
   disks {
-       ide {
-            ide3 {
+       sata {
+            sata0 {
                 cloudinit {
                     storage = "wexam-ceph-pool"
                 }
