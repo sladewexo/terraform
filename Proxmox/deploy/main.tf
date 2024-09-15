@@ -37,7 +37,7 @@ resource "proxmox_vm_qemu" "prepprovision-test" {
   sockets = 1
   cpu = "host"
   memory = 2048
-  scsihw = "virtio-scsi-pci"
+  scsihw = "virtio-scsi-single"
   bootdisk = "scsi0"
   disk {
     slot = 0
@@ -45,7 +45,7 @@ resource "proxmox_vm_qemu" "prepprovision-test" {
     size = "8G"
     type = "scsi"
     storage = "Storage" # name of your proxmox storage
-    iothread = 1
+    iothread = 0
   }
   
  network {
