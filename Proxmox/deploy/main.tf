@@ -42,7 +42,7 @@ resource "proxmox_vm_qemu" "prepprovision-test" {
   disk {
     slot = 0
     # set disk size here.
-    size = "8G"
+    size = "32G"
     type = "scsi"
     storage = "Storage" # name of your proxmox storage
     iothread = 0
