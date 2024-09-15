@@ -40,10 +40,10 @@ resource "proxmox_vm_qemu" "prepprovision-test" {
   scsihw = "virtio-scsi-single"
   bootdisk = "scsi0"
   disk {
-    slot = 0
+    slot = "virtio0"
     # set disk size here.
     size = "32G"
-    type = "scsi"
+    type = "disk"
     storage = "Storage" # name of your proxmox storage
     iothread = false
   }
