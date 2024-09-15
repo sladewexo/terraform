@@ -48,7 +48,7 @@ resource "proxmox_vm_qemu" "prepprovision-test" {
                 disk {
                     size = "32G"
                     cache = "writeback"
-                    storage_type = "disk"
+                    storage_type = "rbd"
                     storage = "wexam-ceph-pool" # name of your proxmox storage
                     iothread = true
                 }
