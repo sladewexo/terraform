@@ -28,13 +28,14 @@ resource "proxmox_vm_qemu" "prepprovision-test" {
   clone = var.template_name
   # basic VM settings here. agent refers to guest agent
   agent = 1
-  os_type = "Linux"
+  os_type = "cloud-init"
   cores = 2
   sockets = 1
   cpu = "host"
   memory = 2048
+  ciupgrade = true
   scsihw = "virtio-scsi-single"
-  bootdisk = "scsi0"
+  bootdisk = "virtio0"
   disks {
        sata {
             sata0 {
@@ -46,7 +47,7 @@ resource "proxmox_vm_qemu" "prepprovision-test" {
         virtio {
             virtio0 {
                 disk {
-                    size = "32G"
+                    size = "64G"
                     storage = "wexam-ceph-pool" # name of your proxmox storage
                     iothread = true
                 }
