@@ -45,7 +45,7 @@ resource "proxmox_vm_qemu" "prepprovision-test" {
     size = "32G"
     type = "scsi"
     storage = "Storage" # name of your proxmox storage
-    iothread = 0
+    iothread = false
   }
   
  network {
