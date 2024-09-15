@@ -70,7 +70,7 @@ resource "proxmox_vm_qemu" "cloudinit-test" {
   # in this case, since we are only adding a single VM, the IP will
   # be 192.168.100.91 since count.index starts at 0. this is how you can create
   # multiple VMs and have an IP assigned to each (.91, .92, .93, etc.)
-  ipconfig0 = "ip=172.16.1.10${count.index + 1}/24,gw=172.16.1.254"
+  ipconfig0 = "ip=172.16.1.10${count.index + 1}/23,gw=172.16.1.254"
   
   # sshkeys set using variables. the variable contains the text of the key.
   sshkeys = <<EOF
