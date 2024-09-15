@@ -25,7 +25,7 @@ provider "proxmox" {
 # resource is formatted to be "[type]" "[entity_name]"
 resource "proxmox_vm_qemu" "test_server" {
   count = 3 # just want 1 for now
-  name = "debian-vm-${count.index + 1}" #count.index starts at 0, so + 1 means this VM will be named debian-vm-1 in proxmox
+  name = "centos-vm-${count.index + 1}" #count.index starts at 0, so + 1 means this VM will be named debian-vm-1 in proxmox
   # this now reaches out to the vars file.
   target_node = var.proxmox_host
   # another variable with contents "debian-cloudinit-template"
