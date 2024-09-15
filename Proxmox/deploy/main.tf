@@ -19,7 +19,7 @@ provider "proxmox" {
 }
 
 # resource is formatted to be "[type]" "[entity_name]"
-resource "proxmox_vm_qemu" "prepprovision-test" {
+resource "proxmox_vm_qemu" "cloudinit-test" {
   count = 3 # just want 1 for now
   name = "centos-vm-${count.index + 1}" #count.index starts at 0, so + 1 means this VM will be named debian-vm-1 in proxmox
   # this now reaches out to the vars file.
